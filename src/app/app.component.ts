@@ -7,6 +7,7 @@ import {MatToolbar} from "@angular/material/toolbar";
 import {MatIconButton} from "@angular/material/button";
 import {LoadingIndicatorComponent} from "./loading/loading.component";
 import {MessagesComponent} from "./messages/messages.component";
+import {AuthService} from "./services/auth.service";
 
 
 @Component({
@@ -20,5 +21,11 @@ import {MessagesComponent} from "./messages/messages.component";
 })
 export class AppComponent {
 
+    auth = inject(AuthService);
 
+    isLogedIn = this.auth.isLogedIn;
+
+    onLougOut() {
+        this.auth.lougOut();
+    }
 }
